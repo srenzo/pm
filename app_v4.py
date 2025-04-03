@@ -86,6 +86,7 @@ with st.sidebar:
             with st.spinner("Loading data..."):
                 for file in uploaded_files:
                     try:
+                        logging.info(f"Processing file: {file.name}")
                         file_name = Path(file.name).stem
                         # Read parquet file
                         parquet_table = pq.read_table(file)
@@ -94,6 +95,7 @@ with st.sidebar:
                         st.session_state.dataframes[file_name] = df
                         st.success(f"✅ Loaded {file_name}: {df.shape[0]} rows, {df.shape[1]} columns")
                     except Exception as e:
+                        logging.error(f"Error loading {file.name}: {e}")
                         st.error(f"Error loading {file.name}: {e}")
     
     # Data explorer toggle
