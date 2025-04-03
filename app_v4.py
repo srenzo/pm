@@ -15,11 +15,11 @@ from pathlib import Path
 from botocore.config import Config
 from tabulate import tabulate
 
-st.write("Secrets loaded:", st.secrets)
+##st.write("Secrets loaded:", st.secrets)
 
-aws_access_key = st.secrets["AWS_ACCESS_KEY_ID"]
-aws_secret_key = st.secrets["AWS_SECRET_ACCESS_KEY"]
-aws_region = st.secrets["AWS_REGION"]
+aws_access_key = st.secrets["default"]["AWS_ACCESS_KEY_ID"]
+aws_secret_key = st.secrets["default"]["AWS_SECRET_ACCESS_KEY"]
+aws_region = st.secrets["default"]["AWS_REGION"]
 
 # Set up page config
 st.set_page_config(
