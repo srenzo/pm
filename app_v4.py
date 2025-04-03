@@ -14,6 +14,11 @@ import traceback
 from pathlib import Path
 from botocore.config import Config
 from tabulate import tabulate
+import os
+
+aws_access_key = os.getenv("AWS_ACCESS_KEY_ID")
+aws_secret_key = os.getenv("AWS_SECRET_ACCESS_KEY")
+aws_region = os.getenv("AWS_REGION")
 
 # Set up page config
 st.set_page_config(
