@@ -19,6 +19,8 @@ aws_access_key = st.secrets["AWS_ACCESS_KEY_ID"]
 aws_secret_key = st.secrets["AWS_SECRET_ACCESS_KEY"]
 aws_region = st.secrets["AWS_REGION"]
 
+st.write("Secrets loaded:", st.secrets)
+
 # Set up page config
 st.set_page_config(
     page_title="Parquet Data Chat",
