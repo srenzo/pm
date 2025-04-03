@@ -107,7 +107,12 @@ with st.sidebar:
                     session = boto3.Session(profile_name=aws_profile)
                     client = session.client("bedrock-runtime", region_name=aws_region)
                 else:
-                    client = boto3.client("bedrock-runtime", region_name=aws_region)
+                    session = boto3.Session(
+                        aws_access_key_id=aws_access_key,
+                        aws_secret_access_key=aws_secret_key,
+                        region_name=aws_region
+                    )
+                    client = session.client("bedrock-runtime", region_name=aws_region)
                 
                 # Test with a simple prompt
                 test_body = {
@@ -156,7 +161,12 @@ else:
                         session = boto3.Session(profile_name=aws_profile)
                         client = session.client("bedrock-runtime", region_name=aws_region)
                     else:
-                        client = boto3.client("bedrock-runtime", region_name=aws_region)
+                        session = boto3.Session(
+                            aws_access_key_id=aws_access_key,
+                            aws_secret_access_key=aws_secret_key,
+                            region_name=aws_region
+                        )
+                        client = session.client("bedrock-runtime", region_name=aws_region)
                     
                     # Prepare messages - FIXED: Ensure messages alternate correctly
                     messages = []
